@@ -1,0 +1,174 @@
+fileFormatVersion: 2
+guid: fe44e610f2134054cb532b68d133ff41
+timeCreated: 1467480235
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Bg1
+    21300002: Bg2
+    21300004: Bg4
+    21300006: Plataforma1
+    21300008: Plataforma2
+    21300010: Plataforma3
+    21300012: Plataforma14
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 5
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Bg1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 421
+        width: 512
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 201, y: 44.5}
+        - {x: 108, y: 25.5}
+        - {x: 61, y: 45.5}
+        - {x: -14, y: 45.5}
+        - {x: -53, y: 32.5}
+        - {x: -59, y: 45.5}
+        - {x: -88, y: 45.5}
+        - {x: -162, y: 22.5}
+        - {x: -218, y: 44.5}
+        - {x: -256, y: 13.5}
+        - {x: -256, y: -45.5}
+        - {x: 256, y: -45.5}
+        - {x: 256, y: 21.5}
+        - {x: 213, y: 41.5}
+    - name: Bg2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 331
+        width: 512
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 199, y: 44.5}
+        - {x: 145, y: 23.5}
+        - {x: 50, y: 25.5}
+        - {x: 38, y: 44.5}
+        - {x: -14, y: 44.5}
+        - {x: -53, y: 31.5}
+        - {x: -59, y: 44.5}
+        - {x: -88, y: 44.5}
+        - {x: -162, y: 21.5}
+        - {x: -218, y: 43.5}
+        - {x: -256, y: 12.5}
+        - {x: -256, y: -44.5}
+        - {x: 256, y: -44.5}
+        - {x: 256, y: 25.5}
+        - {x: 201, y: 44.5}
+    - name: Bg4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 175
+        width: 512
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -256, y: 29}
+        - {x: -256, y: -29}
+        - {x: 256, y: -29}
+        - {x: 256, y: 29}
+    - name: Plataforma1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 113
+        width: 24
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Plataforma2
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 113
+        width: 24
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Plataforma3
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 113
+        width: 21
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Plataforma14
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 113
+        width: 19
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
