@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class GameMaster : MonoBehaviour {
-
+	/* Iniciar todas las acciones del juego*/
 	public static GameMaster gm;
 
 	void Start () {
@@ -13,14 +13,17 @@ public class GameMaster : MonoBehaviour {
 
 	public Transform playerPrefab;
 	public Transform spawnPoint;
+
+	public Transform spawnPrefab;
+
 	public int spawnDelay = 1;
 
 	public IEnumerator RespawnPlayer () {
-		Debug.Log ("TODO: Add waiting for spawn sound");
 		yield return new WaitForSeconds (spawnDelay);
 
 		Instantiate (playerPrefab, spawnPoint.position, spawnPoint.rotation);
-		Debug.Log ("TODO: Add Spawn Particles");
+		GameObject clonadoSpanPart = Instantiate (spawnPrefab, spawnPoint.position, spawnPoint.rotation) as GameObject;
+		//Destroy (clonadoSpanPart, 1f);
 	}
 
 	public static void KillPlayer (Player player) {
