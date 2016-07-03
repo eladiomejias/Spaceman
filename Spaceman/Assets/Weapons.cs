@@ -8,11 +8,14 @@ public class Weapons : MonoBehaviour {
 	public LayerMask debemosDisparar;
 
 	public Transform BulletTrailPrefad;
-	 float tiempoDenuevoDisparo = 20;
-	 public float effectSpawnEffect = 10;
+	float tiempoDenuevoDisparo = 20;
+	public float effectSpawnEffect = 10;
 
 	float tiempoDeDisparo = 0;
 	Transform firePoint;
+
+
+	public Transform flash;
 
 
 	// Use this for initialization
@@ -95,5 +98,15 @@ public class Weapons : MonoBehaviour {
 		/* Se instancia el objeto del juego, la posicion y la rotacion del angulo */
 		Instantiate (BulletTrailPrefad, firePoint.position, firePoint.rotation);
 
+		/* Segunda instancia para el flash*/
+		Transform clonado = Instantiate (flash, firePoint.position, firePoint.rotation) as Transform;
+		clonado.parent = firePoint;
+
+		/* tamaño predeterminado del flash que sale del disparo */
+		float tamaño = Random.Range (0.4f, 0.7f);
+		/*se crea un puntero local */
+		clonado.localScale = new Vector3 (tamaño, tamaño, tamaño);
+		/* se destruye cada despues del disparo 0.05s*/
+		Destroy (clonado.gameObject, 0.05f);
 	}
 }
