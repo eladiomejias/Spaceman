@@ -5,13 +5,13 @@
 ## Realtime project:
 
 ### Diseño:
-- [x] Escenografia principal
+- Escenografia principal
   - [x] Montañas
   - [x] Parallax en bg.
   - [] Background adecuado
   - [] Tiling
 
-- [x] Personaje principal
+-  Personaje principal
   - [x] Sprites graficos
   - [x] Arm
   - [] Animacion de movimiento
