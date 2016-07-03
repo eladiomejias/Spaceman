@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\ArmRotation.cs" />
+     <Compile Include="Assets\MovBala.cs" />
      <Compile Include="Assets\Parallaxing.cs" />
      <Compile Include="Assets\Shoot.cs" />
      <Compile Include="Assets\Weapons.cs" />

@@ -7,6 +7,9 @@ public class Weapons : MonoBehaviour {
 	public float damage = 0;
 	public LayerMask debemosDisparar;
 
+	public Transform BulletTrailPrefad;
+	 float tiempoDenuevoDisparo = 20;
+	 public float effectSpawnEffect = 10;
 
 	float tiempoDeDisparo = 0;
 	Transform firePoint;
@@ -42,7 +45,7 @@ public class Weapons : MonoBehaviour {
 			if (Input.GetButton ("Fire1") && Time.time > tiempoDeDisparo) {
 				// Disparo consecutivo.
 				// Aqui toma el valor del tiempo de ejecucion en el disparo consec
-				tiempoDeDisparo = Time.time + 1 / tiempoDeDisparo;
+				tiempoDeDisparo = Time.time + 1 / valorDisparo;
 				// Se llama al metodo de disparo.
 				Disparar ();
 			}
@@ -65,6 +68,15 @@ public class Weapons : MonoBehaviour {
 
 		// Creando la animacion del raycast para el disparo.
 		RaycastHit2D disparo = Physics2D.Raycast(firePointPos, mousePos-firePointPos, 100, debemosDisparar);
+
+		if(Time.time >= tiempoDenuevoDisparo){
+			Effect ();
+			tiempoDenuevoDisparo = Time.time + 1 / effectSpawnEffect;
+		}
+
+		/* Llamada al efecto del disparo */
+		Effect ();
+
 		Debug.DrawLine (firePointPos, (mousePos-firePointPos)*100,Color.white);
 
 		// Cuando toque algo
@@ -73,6 +85,15 @@ public class Weapons : MonoBehaviour {
 			Debug.Log ("Le disparamos a "+disparo.collider+" he hicimos: "+damage+" de daño");
 
 		}
+
+	}
+
+
+	/*Efecto de disparo del arma*/
+
+	void Effect(){
+		/* Se instancia el objeto del juego, la posicion y la rotacion del angulo */
+		Instantiate (BulletTrailPrefad, firePoint.position, firePoint.rotation);
 
 	}
 }
