@@ -7,27 +7,29 @@
 ### Diseño:
 - Escenografia principal
   - [x] Montañas
-  - [x] Parallax en bg.
-  - [] Background adecuado
-  - [] Tiling
+  - [x] Parallax en bg
+  - [ ] Background adecuado
+  - [ ] Tiling
 
 -  Personaje principal
   - [x] Sprites graficos
   - [x] Arm
-  - [] Animacion de movimiento
+  - [ ] Animacion de movimiento / animation
   - [x] Pistola
   - [x] Animacion bala
   - [x] Daño de pistola en un objeto collider.
+  - [x] Effecto flash de disparo
 
 
 ### Archivos C# (Excluyendo los predeterminados):
 - [x] Parallaxing.cs
+- [x] ArmRotation.cs
 - [x] Weapon.cs
 - [x] MovBala.cs
 
 
 ### Database:
-- []  Conexion principal con la Database
-- [] Test con el login
+- [ ]  Conexion principal con la Database
+- [ ] Test con el login
 
   
