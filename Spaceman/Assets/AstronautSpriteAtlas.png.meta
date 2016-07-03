@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8ce231ba582757e4aa61445cd8e7fbde
-timeCreated: 1467501196
+timeCreated: 1467509806
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -168,8 +168,8 @@ TextureImporter:
         y: 153
         width: 12
         height: 5
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.15, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: Gun

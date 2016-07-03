@@ -47,6 +47,8 @@
   <ItemGroup>
      <Compile Include="Assets\ArmRotation.cs" />
      <Compile Include="Assets\Parallaxing.cs" />
+     <Compile Include="Assets\Shoot.cs" />
+     <Compile Include="Assets\Weapons.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
