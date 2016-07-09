@@ -19,6 +19,21 @@ public class Weapons : MonoBehaviour {
 
 	public Transform flash;
 
+	// Manejando el shake de la camera
+	public float camShakeAmount = 0.1f;
+	public float camShakeLength = 0.2f;
+
+	CameraShake camShake;
+
+	void Start(){
+
+		camShake = GameMaster.gm.GetComponent<CameraShake> ();
+
+		if(camShake == null){
+			Debug.LogError ("No camera shake, found");
+		}
+	}
+
 
 	// Use this for initialization
 	void Awake () {
@@ -32,6 +47,8 @@ public class Weapons : MonoBehaviour {
 		}
 
 	}
+
+
 
 	// Update is called once per frame
 	void Update () {
@@ -144,5 +161,8 @@ public class Weapons : MonoBehaviour {
 		clonado.localScale = new Vector3 (tamaño, tamaño, tamaño);
 		/* se destruye cada despues del disparo 0.05s*/
 		Destroy (clonado.gameObject, 0.05f);
+
+		// Shake the camera
+		camShake.Shake(camShakeAmount, camShakeLength);
 	}
 }

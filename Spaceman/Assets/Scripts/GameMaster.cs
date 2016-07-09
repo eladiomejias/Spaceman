@@ -5,7 +5,7 @@ public class GameMaster : MonoBehaviour {
 	/* Iniciar todas las acciones del juego*/
 	public static GameMaster gm;
 
-	void Start () {
+	void Awake () {
 		if (gm == null) {
 			gm = GameObject.FindGameObjectWithTag ("GM").GetComponent<GameMaster>();
 		}
