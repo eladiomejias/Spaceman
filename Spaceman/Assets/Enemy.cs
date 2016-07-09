@@ -3,13 +3,27 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	/* Definiendo la clase Player Estadisticas */
+	[System.Serializable]
+	public class EnemyStats{
+		/* Constructor */
+		public float Vida = 100f;
+
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	/* Creand instancia de la clase player */
+	public EnemyStats myenemy = new EnemyStats();
+
+
+	/* Metodo del daño */
+	public void DamageEnemy(int damage){
+		myenemy.Vida -= damage;
+
+		if(myenemy.Vida <= 0){
+			//Debug.LogError ("Myplayer die");
+			GameMaster.KillEnemy(this);
+		}
 	}
+
+
 }

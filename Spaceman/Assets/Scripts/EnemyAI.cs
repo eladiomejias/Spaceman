@@ -32,6 +32,8 @@ public class EnemyAI : MonoBehaviour {
 	// Actual coordenada al punto a la que nos moveremos
 	private int actualCoord = 0;
 
+	// Para act la path
+	private bool busquedaDePlayer = false;
 
 	void Start(){
 
@@ -40,7 +42,11 @@ public class EnemyAI : MonoBehaviour {
 
 		if(target == null){
 
-			Debug.LogError ("Target not found");
+			if (!busquedaDePlayer) {
+				busquedaDePlayer = true;
+				StartCoroutine (busquedaPlayer ());
+			}
+
 			return;
 		}
 
@@ -49,12 +55,37 @@ public class EnemyAI : MonoBehaviour {
 		StartCoroutine (UpdatePath());
 	}
 
+	// Activado por el corutine
+	IEnumerator busquedaPlayer(){
+		
+		GameObject resultadoBusqueda = GameObject.FindGameObjectWithTag ("Player");
+		// Si nuestro objetivo o resultado de busqueda de player es nulo, paramos de buscar.
+		// Esperamos 0.5 seg y volvemos a encontrar.
+		if (resultadoBusqueda == null) {
+			yield return new WaitForSeconds (0.5f);
+			StartCoroutine (busquedaPlayer ());
+		} else {
+			target = resultadoBusqueda.transform;
+			busquedaDePlayer = false;
+			StartCoroutine (UpdatePath ());
+			return false;
+		}
+	}
 
 
 	IEnumerator UpdatePath(){
-
+		/*
 		if(target == null){
 			//Todo: Insert a player search here.
+			return false;
+		}*/
+		if(target == null){
+
+			if (!busquedaDePlayer) {
+				busquedaDePlayer = true;
+				StartCoroutine (busquedaPlayer());
+			}
+
 			return false;
 		}
 
@@ -82,9 +113,19 @@ public class EnemyAI : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-
+		/*
 		if(target == null){
 			//Todo: Insert a player search here.
+			return;
+		}*/
+
+		if(target == null){
+
+			if (!busquedaDePlayer) {
+				busquedaDePlayer = true;
+				StartCoroutine (busquedaPlayer());
+			}
+
 			return;
 		}
 

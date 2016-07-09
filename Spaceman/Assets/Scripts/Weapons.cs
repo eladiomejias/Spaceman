@@ -4,7 +4,7 @@ using System.Collections;
 public class Weapons : MonoBehaviour {
 
 	public float valorDisparo = 0 ;
-	public float damage = 0;
+	public int damage = 0;
 	public LayerMask debemosDisparar;
 
 	public Transform BulletTrailPrefad;
@@ -85,8 +85,13 @@ public class Weapons : MonoBehaviour {
 		// Cuando toque algo
 		if (disparo.collider != null) {
 			Debug.DrawLine (firePointPos, disparo.point, Color.red);
-			Debug.Log ("Le disparamos a "+disparo.collider+" he hicimos: "+damage+" de daño");
+			//Debug.Log ("Le disparamos a "+disparo.collider+" he hicimos: "+damage+" de daño");
+			Enemy enemy = disparo.collider.GetComponent<Enemy>();
+			if (enemy != null) {
+				enemy.DamageEnemy (damage);
+				Debug.Log ("Le disparamos a "+disparo.collider+" he hicimos: "+damage+" de daño");
 
+			}
 		}
 
 	}
