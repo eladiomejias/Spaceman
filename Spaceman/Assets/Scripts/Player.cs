@@ -7,14 +7,52 @@ public class Player : MonoBehaviour {
 	[System.Serializable]
 	public class PlayerStats{
 		/* Constructor */
-		public float Vida = 100f;
+		public int maxVida = 100;
+
+		private int _vidaActual;
+
+		/* metodo para getters and setter */
+		public int vidaActual{
+			/* get and set */
+			get{ return _vidaActual; }
+			set{ _vidaActual = Mathf.Clamp (value, 0, maxVida); }
+
+		}
+
+			
+		public void Init(){
+			vidaActual = maxVida;
+
+		}
+
+	}
+		
+
+	/* Creando instancia de la clase player */
+	public PlayerStats stats = new PlayerStats();
+
+	public int caida = -20;
+
+	// definiendo el status indicator
+	[SerializeField]
+	private StatusIndicator statusIndicator;
+
+	void Start(){
+
+		// init las stats.
+		stats.Init ();
+
+		if (statusIndicator == null) {
+			Debug.LogError ("No existe un status indicator en el jugador");
+		} else {
+
+			// Llevando los datos de daño
+			statusIndicator.SetHealth (stats.vidaActual, stats.maxVida);
+
+		}
 
 	}
 
-	/* Creand instancia de la clase player */
-	public PlayerStats myplayer = new PlayerStats();
-
-	public int caida = -20;
 
 	/* Update que act las frames*/
 	void Update(){
@@ -25,13 +63,17 @@ public class Player : MonoBehaviour {
 
 	/* Metodo del daño */
 	public void DamagePlayer(int damage){
-		myplayer.Vida -= damage;
+		stats.vidaActual -= damage;
 
-		if(myplayer.Vida <= 0){
-			//Debug.LogError ("Myplayer die");
+		if(stats.vidaActual <= 0){
 			GameMaster.KillPlayer(this);
 		}
+
+		// Act cada statusIndicator
+		statusIndicator.SetHealth (stats.vidaActual, stats.maxVida);
+
 	}
+
 
 
 }

@@ -21,6 +21,9 @@ public class Enemy : MonoBehaviour {
 
 		}
 
+		public int damage = 40;
+	
+
 		public void Init(){
 
 			vidaActual = maximaVida;
@@ -35,6 +38,11 @@ public class Enemy : MonoBehaviour {
 
 	/* Creando instancia de la clase player */
 	public EnemyStats myenemy = new EnemyStats();
+	public Transform deathParticles;
+	public float shakeAmount = 0.1f;
+	public float shakeLength = 0.1f;
+
+
 
 	[Header ("Optional: ")]
 	[SerializeField]
@@ -47,6 +55,10 @@ public class Enemy : MonoBehaviour {
 
 			statusIndicator.SetHealth (myenemy.vidaActual, myenemy.maximaVida);
 
+		}
+
+		if(deathParticles == null){
+			Debug.LogError ("No death particles, have been found");
 		}
 
 	}
@@ -67,6 +79,13 @@ public class Enemy : MonoBehaviour {
 			statusIndicator.SetHealth (myenemy.vidaActual, myenemy.maximaVida);
 
 		}
+	}
+
+	void OnCollisionEnter2D(Collision2D _colInfo){
+
+		Player _player = _colInfo.collider.GetComponent<Player>();
+		if(_player != null){ _player.DamagePlayer (myenemy.damage); DamageEnemy (999999);}
+
 	}
 
 
