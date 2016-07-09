@@ -8,7 +8,9 @@ public class Weapons : MonoBehaviour {
 	public LayerMask debemosDisparar;
 
 	public Transform BulletTrailPrefad;
-	float tiempoDenuevoDisparo = 20;
+	public Transform hitPrefab;
+
+	float tiempoDenuevoDisparo = 0;
 	public float effectSpawnEffect = 10;
 
 	float tiempoDeDisparo = 0;
@@ -72,13 +74,6 @@ public class Weapons : MonoBehaviour {
 		// Creando la animacion del raycast para el disparo.
 		RaycastHit2D disparo = Physics2D.Raycast(firePointPos, mousePos-firePointPos, 100, debemosDisparar);
 
-		if(Time.time >= tiempoDenuevoDisparo){
-			Effect ();
-			tiempoDenuevoDisparo = Time.time + 1 / effectSpawnEffect;
-		}
-
-		/* Llamada al efecto del disparo */
-		Effect ();
 
 		Debug.DrawLine (firePointPos, (mousePos-firePointPos)*100,Color.white);
 
@@ -94,14 +89,50 @@ public class Weapons : MonoBehaviour {
 			}
 		}
 
+		/* Llamada al efecto del disparo */
+		if(Time.time >= tiempoDenuevoDisparo){
+			Vector3 disparoPos;
+			Vector3 disparoNormalAngle;
+
+			if (disparo.collider == null) {
+				disparoPos = (mousePos - firePointPos) * 30;
+				disparoNormalAngle = new Vector3 (9999,9999,9999);
+			} else {
+				disparoPos = disparo.point;
+				disparoNormalAngle = disparo.normal;
+			}
+
+			Effect (disparoPos, disparo.normal);
+			tiempoDenuevoDisparo = Time.time + 1 / effectSpawnEffect;
+		}
+
+
+
 	}
 
 
 	/*Efecto de disparo del arma*/
 
-	void Effect(){
+	void Effect(Vector3 disparoPos, Vector3 disparoNormalAngle){
 		/* Se instancia el objeto del juego, la posicion y la rotacion del angulo */
-		Instantiate (BulletTrailPrefad, firePoint.position, firePoint.rotation);
+		Transform trail = Instantiate (BulletTrailPrefad, firePoint.position, firePoint.rotation) as Transform;
+		LineRenderer lr = trail.GetComponent<LineRenderer> ();
+
+		if(lr != null){
+			// Posiciones de line renderer para trail. Donde hace hit.
+			lr.SetPosition(0, firePoint.position);
+			lr.SetPosition(1, disparoPos);
+
+		}
+		// Destruccion del efecto trail
+		Destroy (trail.gameObject, 0.05f);
+
+		// Efecto de choque con bala
+		if(disparoNormalAngle != new Vector3(9999,9999,9999)){
+			Transform hitParticle = Instantiate (hitPrefab, disparoPos, Quaternion.FromToRotation (Vector3.right, disparoNormalAngle)) as Transform; 
+			Destroy (hitParticle.gameObject, 1f);
+
+		}
 
 		/* Segunda instancia para el flash*/
 		Transform clonado = Instantiate (flash, firePoint.position, firePoint.rotation) as Transform;
