@@ -9,8 +9,13 @@ public class GameMaster : MonoBehaviour {
 
 	// El contador de vidas con metodo get para usarlo en LiveCounterUI
 	private static int _remainingLives = 3;
+	private static int _enemyCounters = 0;
+
 	public static int RemainingLives{
 		get{ return _remainingLives; }
+	}
+	public static int EnemysKilled{
+		get{ return _enemyCounters; }
 	}
 
 
@@ -38,6 +43,8 @@ public class GameMaster : MonoBehaviour {
 	public void EndGame(){
 		Debug.LogError ("GAME OVER");
 		GameOverUI.SetActive (true);
+		_remainingLives = 3;
+		_enemyCounters = 0;
 	}
 
 	public IEnumerator RespawnPlayer () {
@@ -64,7 +71,7 @@ public class GameMaster : MonoBehaviour {
 
 	public static void KillEnemy (Enemy enemy) {
 		gm._KillEnemy(enemy);
-
+		_enemyCounters += 1;
 	}
 
 	// local no static.
