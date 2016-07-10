@@ -1,9 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+
 
 public class GameMaster : MonoBehaviour {
 	/* Iniciar todas las acciones del juego*/
 	public static GameMaster gm;
+
+	// El contador de vidas con metodo get para usarlo en LiveCounterUI
+	private static int _remainingLives = 3;
+	public static int RemainingLives{
+		get{ return _remainingLives; }
+	}
+
 
 	void Awake () {
 		if (gm == null) {
@@ -18,8 +27,17 @@ public class GameMaster : MonoBehaviour {
 
 	public int spawnDelay = 1;
 
+	[SerializeField]
+	public GameObject GameOverUI;
+
+
 	void Start(){
 		if(cameraShake == null){Debug.LogError ("No camera shake have referenced");}
+	}
+
+	public void EndGame(){
+		Debug.LogError ("GAME OVER");
+		GameOverUI.SetActive (true);
 	}
 
 	public IEnumerator RespawnPlayer () {
@@ -32,6 +50,15 @@ public class GameMaster : MonoBehaviour {
 
 	public static void KillPlayer (Player player) {
 		Destroy (player.gameObject);
+		// decrement the lives
+		_remainingLives -= 1;
+		if(_remainingLives <= 0){
+			/// si se le acabo la vida.
+			gm.EndGame();
+		}else{
+			
+		}
+
 		gm.StartCoroutine (gm.RespawnPlayer());
 	}
 
