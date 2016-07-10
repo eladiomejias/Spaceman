@@ -40,7 +40,6 @@ public class WaveUI : MonoBehaviour {
 			this.enabled = false;
 		}
 
-		previousState = spawner.State;
 	}
 
 	// Update is called once per frame
@@ -56,6 +55,9 @@ public class WaveUI : MonoBehaviour {
 			break;
 		
 		}
+
+		previousState = spawner.State;
+
 	}
 
 	void UpdateCountingUI () {
