@@ -137,6 +137,7 @@
      <Compile Include="Assets\Scripts_spaceman\db_spaceman.cs" />
      <Compile Include="Assets\Scripts_spaceman\inicio_sesion.cs" />
      <Compile Include="Assets\StatusIndicator.cs" />
+     <Compile Include="Assets\WaveSpawner.cs" />
      <None Include="Assets\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh.shader" />
      <None Include="Assets\AstarPathfindingProject\Plugins\DotNetZip\DotNetZipLicense.txt" />
      <None Include="Assets\AstarPathfindingProject\ExampleScenes\Materials\Projector Multiply.shader" />
