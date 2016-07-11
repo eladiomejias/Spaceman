@@ -3,15 +3,17 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 
-	/* Definiendo la clase Player Estadisticas */
-	[System.Serializable]
+    public static int cantEnemies = 0;
+
+    /* Definiendo la clase Player Estadisticas */
+    [System.Serializable]
 	public class EnemyStats{
 		/* Constructor */
 
 		public int maximaVida = 100;
 		private int _vidaActual;
-
-		public int vidaActual{
+       
+        public int vidaActual{
 
 
 
@@ -27,10 +29,10 @@ public class Enemy : MonoBehaviour {
 		public void Init(){
 
 			vidaActual = maximaVida;
+            cantEnemies += 1;
+        }
 
-		}
-
-
+        
 	}
 
 

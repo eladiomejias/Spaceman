@@ -41,10 +41,21 @@ public class GameMaster : MonoBehaviour {
 	}
 
 	public void EndGame(){
+        string[] valores = new string[3];
+        string[] atributos = new string[3];
+        db_spaceman bdd = new db_spaceman();
 
-		Debug.LogError ("GAME OVER");
+        Debug.LogError ("GAME OVER");
 		GameOverUI.SetActive (true);
-		_remainingLives = 3;
+        bdd.conectarMysql();
+        atributos[0] = "login_user_username";
+        atributos[1] = "score";
+        atributos[2] = "perc_enemyKilled";
+        valores[0] = inicio_sesion.getUsername();
+        valores[1] = "100";
+        valores[2] = (GameMaster.EnemysKilled * 100 / Enemy.cantEnemies).ToString();
+        bdd.insertar("scores", atributos, valores);
+        _remainingLives = 3;
 		_enemyCounters = 0;
 		// Test for invoke 
 		gm.Invoke("StopGame", 1);
