@@ -41,10 +41,18 @@ public class GameMaster : MonoBehaviour {
 	}
 
 	public void EndGame(){
+
 		Debug.LogError ("GAME OVER");
 		GameOverUI.SetActive (true);
 		_remainingLives = 3;
 		_enemyCounters = 0;
+		// Test for invoke 
+		gm.Invoke("StopGame", 1);
+	
+	}
+
+	public void StopGame(){
+		Time.timeScale = 0;
 	}
 
 	public IEnumerator RespawnPlayer () {

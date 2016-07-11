@@ -14,6 +14,7 @@ public class EnemysCounterUI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		enemysCounter.text = "ENEMIGOS ELIMINADOS: " + GameMaster.EnemysKilled.ToString ();
+
 	}
 
 }

@@ -6,12 +6,13 @@ public class GameOverUI : MonoBehaviour {
 	// Manejando la vista de GameOver
 	public void Quit () {
 		Debug.Log ("App quit");
-		Application.Quit();
+		//Application.Quit();
+		SceneManager.LoadScene("MenuPrincipal");
 	}
 
 
 	public void Retry () {
-		Debug.Log ("App quit");
+		Time.timeScale = 1;
 		Application.LoadLevel(Application.loadedLevel);
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
