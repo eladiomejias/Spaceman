@@ -23,7 +23,14 @@ public class GameOverUI : MonoBehaviour {
 
 
 	public void Retry () {
-		Time.timeScale = 1;
+		//Time.timeScale = 1;
+		Weapons.disparosAcertados = 0;
+		Weapons.disparos = 0;
+		WaveSpawner.rondas = 0;
+		// Esto se act
+		GameMaster._remainingLives = 3;
+		GameMaster._enemyCounters = 0;
+
 		Application.LoadLevel(Application.loadedLevel);
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}

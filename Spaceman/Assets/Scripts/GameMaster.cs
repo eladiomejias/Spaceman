@@ -8,8 +8,8 @@ public class GameMaster : MonoBehaviour {
 	public static GameMaster gm;
 
 	// El contador de vidas con metodo get para usarlo en LiveCounterUI
-	private static int _remainingLives = 3;
-	private static int _enemyCounters = 0;
+	public static int _remainingLives = 3;
+	public static int _enemyCounters = 0; // Era private
 
 	public static int RemainingLives{
 		get{ return _remainingLives; }
