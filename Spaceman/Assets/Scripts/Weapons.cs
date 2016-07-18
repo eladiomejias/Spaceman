@@ -124,7 +124,7 @@ public class Weapons : MonoBehaviour {
 				disparoNormalAngle = disparo.normal;
 			}
 
-			Effect (disparoPos, disparo.normal);
+			Effect (disparoPos, disparoNormalAngle); //here disparo.normal
 			tiempoDenuevoDisparo = Time.time + 1 / effectSpawnEffect;
 		}
 
