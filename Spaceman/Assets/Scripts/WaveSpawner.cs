@@ -3,6 +3,7 @@ using System.Collections;
 
 public class WaveSpawner : MonoBehaviour {
 
+	public static int rondas = 0;
 	public enum SpawnState { SPAWNING, WAITING, COUNTING };
 
 	[System.Serializable]
@@ -77,6 +78,7 @@ public class WaveSpawner : MonoBehaviour {
 
 	void WaveCompleted()
 	{
+		rondas = rondas + 1;
 		Debug.Log("Wave Completed!");
 
 		state = SpawnState.COUNTING;

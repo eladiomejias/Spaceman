@@ -7,6 +7,9 @@ public class Weapons : MonoBehaviour {
 	public int damage = 0;
 	public LayerMask debemosDisparar;
 
+	public static int disparosAcertados = 0;
+	public static int disparos = 0;
+
 	public Transform BulletTrailPrefad;
 	public Transform hitPrefab;
 
@@ -80,7 +83,8 @@ public class Weapons : MonoBehaviour {
 	// Metodo de disparo
 	void Disparar(){
 
-		Debug.Log ("pew");
+		//Debug.Log ("pew");
+		disparos = disparos + 1;
 		// Tomando el valor del mouse desde la camara principal.
 		Vector2 mousePos = new Vector2 (Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
 
@@ -100,6 +104,7 @@ public class Weapons : MonoBehaviour {
 			//Debug.Log ("Le disparamos a "+disparo.collider+" he hicimos: "+damage+" de daño");
 			Enemy enemy = disparo.collider.GetComponent<Enemy>();
 			if (enemy != null) {
+				disparosAcertados = disparosAcertados + 1;
 				enemy.DamageEnemy (damage);
 				Debug.Log ("Le disparamos a "+disparo.collider+" he hicimos: "+damage+" de daño");
 
