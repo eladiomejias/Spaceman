@@ -41,7 +41,7 @@ public class db_spaceman : MonoBehaviour
     public static void conectarMysql()
     {
 
-        especifConex = "Server=127.0.0.1" + ";Database=spaceman" + ";User=root" + ";Password=root";
+        especifConex = "Server=127.0.0.1" + ";Database=spaceman" + ";User=root" + ";Password=";
 
         try
         {

@@ -3,19 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class GameOverUI : MonoBehaviour {
 
-	public void Start(){
-		float porc =  (Weapons.disparosAcertados * 100 / Weapons.disparos);
 
+	public void Start(){
 		Weapons.disparosAcertados = 0;
 		Weapons.disparos = 0;
 		WaveSpawner.rondas = 0;
-
-		Debug.Log ("El porcentaje es: "+porc+" %");
 	}
 
 	// Manejando la vista de GameOver
 	public void Quit () {
-		
+        GameMaster.isEnabled = false;
 		Debug.Log ("App quit");
 		//Application.Quit();
 		SceneManager.LoadScene("MenuPrincipal");
@@ -23,8 +20,9 @@ public class GameOverUI : MonoBehaviour {
 
 
 	public void Retry () {
-		//Time.timeScale = 1;
-		Weapons.disparosAcertados = 0;
+        GameMaster.isEnabled = false;
+        //Time.timeScale = 1;
+        Weapons.disparosAcertados = 0;
 		Weapons.disparos = 0;
 		WaveSpawner.rondas = 0;
 		// Esto se act

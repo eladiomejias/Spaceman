@@ -7,9 +7,13 @@ public class GameMaster : MonoBehaviour {
 	/* Iniciar todas las acciones del juego*/
 	public static GameMaster gm;
 
-	// El contador de vidas con metodo get para usarlo en LiveCounterUI
-	public static int _remainingLives = 3;
+    public static bool isEnabled;
+
+
+    // El contador de vidas con metodo get para usarlo en LiveCounterUI
+    public static int _remainingLives = 3;
 	public static int _enemyCounters = 0; // Era private
+    public static float porc;
 
 	public static int RemainingLives{
 		get{ return _remainingLives; }
@@ -44,14 +48,27 @@ public class GameMaster : MonoBehaviour {
         
         string[] valores = new string[5];
         string[] atributos = { "login_user_username", "score", "perc_enemyKilled", "punteria", "rondas" };
+
+        if (Weapons.disparos == 0)
+        {
+            porc = 0;
+        }
+        else { porc = ((float)(Weapons.disparosAcertados) * 100 / Weapons.disparos); }
         valores[0] = inicio_sesion.getUsername();
-        valores[1] = "100";
-        valores[2] = (GameMaster.EnemysKilled * 100 / Enemy.cantEnemies).ToString();
-        valores[3] = "15.17";
-        valores[4] = "6";
+        valores[1] = (EnemysKilled * 10).ToString();
+        valores[2] = (EnemysKilled).ToString();
+        valores[3] = porc.ToString();
+        valores[4] = (WaveSpawner.rondas).ToString();
         db_spaceman.insertar("scores", atributos, valores);
         Debug.LogError("GAME OVER");
+
+        Weapons.disparosAcertados = 0;
+        Weapons.disparos = 0;
+        WaveSpawner.rondas = 0;
+
+        //Activa la ventana de GAMEOVER
         GameOverUI.SetActive(true);
+        isEnabled = true;
         _remainingLives = 3;
 		_enemyCounters = 0;
 		// Test for invoke 
@@ -76,8 +93,8 @@ public class GameMaster : MonoBehaviour {
 		// decrement the lives
 		_remainingLives -= 1;
 		if(_remainingLives <= 0){
-			/// si se le acabo la vida.
-			gm.EndGame();
+            /// si se le acabo la vida.
+            if (isEnabled == false) { gm.EndGame(); } 
 		}else{
 			
 		}

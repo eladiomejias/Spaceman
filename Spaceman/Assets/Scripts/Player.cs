@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class Player : MonoBehaviour {
 	
 	/* Definiendo la clase Player Estadisticas */
@@ -49,6 +50,7 @@ public class Player : MonoBehaviour {
 			// Llevando los datos de daño
 			statusIndicator.SetHealth (stats.vidaActual, stats.maxVida);
 
+
 		}
 
 	}
@@ -59,6 +61,8 @@ public class Player : MonoBehaviour {
 		if(transform.position.y <= caida){
 			DamagePlayer(99999);
 		}
+
+       // if (GameMaster.isEnabled == true) { Player.(); }
 	}
 
 	/* Metodo del daño */
