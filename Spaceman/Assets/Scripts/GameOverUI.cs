@@ -12,6 +12,15 @@ public class GameOverUI : MonoBehaviour {
 
 	// Manejando la vista de GameOver
 	public void Quit () {
+		/* Act var */
+		Weapons.disparosAcertados = 0;
+		Weapons.disparos = 0;
+		WaveSpawner.rondas = 0;
+		// Esto se act
+		GameMaster._remainingLives = 3;
+		GameMaster._enemyCounters = 0;
+
+
         GameMaster.isEnabled = false;
 		Debug.Log ("App quit");
 		//Application.Quit();
