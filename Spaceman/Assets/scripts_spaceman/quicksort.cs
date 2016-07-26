@@ -2,8 +2,17 @@
 using System.Collections;
 using System;
 
-public class quicksort : MonoBehaviour {
+public class quicksort : MonoBehaviour
+{
 
+    /*Metodo que lleva a cabo el algoritmo de ordenamiento Quicksort que toma como
+     parametros la matriz que contiene la informacion correspondiente a las mayores
+     puntuaciones y, la posicion inicial y final del arreglo empezando desde 0.
+     
+     La unica modificacion a este algoritmo es: al intercambiar los valores de las
+     posiciones en la matriz, tambien cambia los id del puntaje del usuario correspondiente
+     para poder corresponder correctamente el id de la puntuacion del usuario a su valor
+     correcto.*/
     public static void ordenarQuick(ref int[,] arreglo, int primero, int ultimo)
     {
         int i = primero, j = ultimo;
