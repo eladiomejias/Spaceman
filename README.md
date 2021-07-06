@@ -1,5 +1,5 @@
 
-![](https://github.com/eladiomejias/Spaceman/blob/master/Spaceman/Assets/Demo/spaceman-2.mp4)
+![](https://github.com/eladiomejias/Spaceman/blob/master/Spaceman/Assets/Demo/spaceman-2.gif)
 
 # The Spaceman
 
